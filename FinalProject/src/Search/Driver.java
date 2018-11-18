@@ -21,6 +21,7 @@ public class Driver{
 		Organization org1 = new Organization();
 		//Instantiate Event
 		Event e1 = new Event();
+		Event e2 = new Event();
 		//Instantiate Volunteers
 		Volunteer v1 = new Volunteer();
 		Volunteer v2 = new Volunteer();
@@ -69,6 +70,9 @@ public class Driver{
 		cu1.setTravelRadius(2.0);
 		cu1.setEquipment("watergun");
 		cu1.addAvailability(111);
+		
+		org1.addUserToBlacklist(cu1);
+		
 		
 		cu2.setName("John Marston");
 		cu2.setHoursRequired(10);
@@ -134,7 +138,6 @@ public class Driver{
 		e1.setName("Pool Party");
 		e1.setCshEligible(true);
 		e1.setWorkType("Youth");
-		e1.setDateString("10/31/2018");
 		e1.setLocX(1.0);
 		e1.setLocY(1.0);
 		e1.setMaxUsers(1);
@@ -143,9 +146,28 @@ public class Driver{
 		e1.addTimeSlot(114);
 		e1.setOrganization(org1);
 		
+		e2.setName("Cleaning out the warehouse");
+		e2.setCshEligible(true);
+		e2.setWorkType("Cleaning");
+		e2.setLocX(2.5);
+		e2.setLocY(2.5);
+		e2.setMaxUsers(15);
+		e2.addTimeSlot(111);
+		e2.addTimeSlot(112);
+		e2.addTimeSlot(113);
+		e2.addTimeSlot(114);
+		e2.addTimeSlot(115);
+		e2.setOrganization(org1);
+		
+		cu1.addEvent(e1);
+		org1.removeUserFromBlacklist(cu1);
+		cu1.addEvent(e2);
+		cu1.printSchedule();
+
+		
 		//adding event to org and initiating search
 		String dateString = "10/31/2018";
-		s1.organizationList.add(org1);
+		SearchEngine.organizationList.add(org1);
 		s1.searchEvents(dateString , v1);
 		e1.addVolunteer(v1);
 		

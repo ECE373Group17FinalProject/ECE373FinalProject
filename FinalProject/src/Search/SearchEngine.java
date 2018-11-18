@@ -17,7 +17,7 @@ public class SearchEngine {
 
 	//Fields for a Person
 	// public Department[] departmentList;
-	public ArrayList<Organization> organizationList = new ArrayList<Organization>(10000);
+	public static ArrayList<Organization> organizationList = new ArrayList<Organization>(10000);
 	public ArrayList<Volunteer> volunteerList = new ArrayList<Volunteer>(10000);
 	public ArrayList<ConvictUser> convictUserList = new ArrayList<ConvictUser>(10000);
 	public ArrayList<ProbationOfficer> probationOfficerList = new ArrayList<ProbationOfficer>(10000);
@@ -32,7 +32,6 @@ public class SearchEngine {
 		ArrayList<Event> searchResults = new ArrayList<Event>(1000);
 		for(int i = 0; i < organizationList.size(); i++) {
 			for(int j = 0; j < organizationList.get(i).getEvents().size(); j++) {
-				if (dateString == organizationList.get(i).getEvents().get(j).getDateString()) {
 					//	ok, here check time slots
 					//	and add if they share time slots
 					for(int k = 0; k < organizationList.get(i).getEvents().get(j).getTimeSlots().size(); k++) {
@@ -42,7 +41,7 @@ public class SearchEngine {
 						}
 					}
 							
-				}
+				
 			}
 		}
 		
@@ -70,7 +69,6 @@ public class SearchEngine {
 		
 		for(int i = 0; i < organizationList.size(); i++) {
 			for(int j = 0; j < organizationList.get(i).getEvents().size(); j++) {
-				if (dateString == organizationList.get(i).getEvents().get(j).getDateString()) {
 					//	ok, here check time slots
 					//	and add if they share time slots
 					for(int k = 0; k < organizationList.get(i).getEvents().get(j).getTimeSlots().size(); k++) {
@@ -81,7 +79,7 @@ public class SearchEngine {
 						}
 					}
 							
-				}
+				
 			}
 		}
 		
@@ -135,6 +133,11 @@ public class SearchEngine {
 		double distanceFromUser = -1;
 		distanceFromUser = Math.sqrt((u.getLocX() - e.getLocX())*(u.getLocX() - e.getLocX()) + (u.getLocY() - e.getLocY())*(u.getLocY() - e.getLocY()));
 		return distanceFromUser;
+	}
+	
+	public static int getOrgListSize() {
+		
+		return organizationList.size();
 	}
 	
 	public String determineCSH(Event e) {
