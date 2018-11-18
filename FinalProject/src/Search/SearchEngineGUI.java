@@ -163,13 +163,12 @@ public class SearchEngineGUI extends JFrame {
 		e1.setName("Pool Party");
 		e1.setCshEligible(true);
 		e1.setWorkType("Youth");
-		e1.setDateString("10/31/2018");
 		e1.setLocX(1.0);
 		e1.setLocY(1.0);
 		e1.setMaxUsers(1);
 		e1.addTimeSlot(111);
 		e1.addTimeSlot(112);
-		e1.addTimeSlot(114);
+		e1.addTimeSlot(113);
 		e1.setOrganization(org1);
 		
 		//create an Organization and add it to search Engine;
@@ -202,7 +201,7 @@ public class SearchEngineGUI extends JFrame {
 		//fileSave = new JMenuItem("Save");
 		//fileLoad = new JMenuItem("Load");
 		
-		//adminSetPayRate.addActionListener(new MenuListener());		//JMenuItem's, via AbstractButton, have a method addActionListener(ActionListener)
+		searchEventsMenu.addActionListener(new MenuListener());		//JMenuItem's, via AbstractButton, have a method addActionListener(ActionListener)
 		//adminPrintAll.addActionListener(new MenuListener());		//The innerclass is implementing ActionListener, so it can take action when the JMenuItem is clicked.
 		
 		//fileSave.addActionListener(new MenuListener());
